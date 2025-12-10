@@ -1,6 +1,8 @@
 const countElement = document.getElementById('count');
 const incrementBtn = document.getElementById('incrementBtn');
 const resetBtn = document.getElementById('resetBtn');
+const modal = document.getElementById('modal');
+const modalBtn = document.getElementById('modalBtn');
 
 // Получить текущее значение счетчика
 async function getCount() {
@@ -25,6 +27,11 @@ async function incrementCount() {
         });
         const data = await response.json();
         countElement.textContent = data.count;
+
+        // Показать модальное окно при 99 кликах
+        if (data.count === 99) {
+            modal.classList.add('show');
+        }
     } catch (error) {
         console.error('Ошибка:', error);
     }
@@ -43,9 +50,15 @@ async function resetCount() {
     }
 }
 
+// Закрыть модальное окно
+function closeModal() {
+    modal.classList.remove('show');
+}
+
 // События
 incrementBtn.addEventListener('click', incrementCount);
 resetBtn.addEventListener('click', resetCount);
+modalBtn.addEventListener('click', closeModal);
 
 // Загрузить начальное значение
 getCount();
