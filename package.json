@@ -1,0 +1,19 @@
+{
+    "name": "click-counter",
+    "version": "1.0.0",
+    "description": "Simple click counter app with Express.js",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "node server.js"
+    },
+    "keywords": [
+        "express",
+        "click-counter"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.2"
+    }
+}
